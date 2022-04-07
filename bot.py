@@ -14,4 +14,4 @@ class MyClient(discord.Client):
 
 intents = discord.Intents.default()
 client = MyClient(intents=intents)
-client.run(os.getenv["SIDHULABS_DISCORD_TOKEN"])
+client.run(os.environ["SIDHULABS_DISCORD_TOKEN"])

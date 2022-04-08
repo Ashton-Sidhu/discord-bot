@@ -1,5 +1,6 @@
 import discord
 import os
+import asyncio
 
 class MyClient(discord.Client):
     async def on_ready(self):
@@ -10,8 +11,17 @@ class MyClient(discord.Client):
             return
 
         if message.content.startswith('!ping'):
-            await message.channel.send('pong!')
+            msg = await message.channel.send('pong!')
+            await asyncio.sleep(10)
+            await msg.delete()
+
+        if message.content.startswith('!ross'):
+            msg = await message.channel.send('RACHEL!')
+            await asyncio.sleep(10)
+            await msg.delete()
+
 
 intents = discord.Intents.default()
 client = MyClient(intents=intents)
 client.run(os.environ["SIDHULABS_DISCORD_TOKEN"])
+
